@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <meta name="scroll-restoration" content="manual"> -->
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.4/dist/lenis.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/output.css">
+  </head>
+  <body class="m-0 p-0 box-border relative w-full h-full font-['Noto Sans']">
+    <header class="w-screen h-[75px] fixed top-0 left-0 z-[250] bg-[rgba(0,0,0,0.3)] backdrop-blur-[15px] flex items-center justify-center">
+
+      <nav id="nav-container" class="w-[97%] h-[65px] flex items-center justify-between relative">
+        <!-- Logo -->
+        <a href="" class="logo h-full px-2 flex items-center justify-center overflow-hidden gap-6">
+          <img src="assets/logo.webp" alt="" class="w-[40px]  h-auto">
+          <span class="text-white lg:text-[20px] font-semibold -ml-4">
+            Wanted.<span class="font-normal">club</span>
+          </span>
+        </a>
+
+        <!-- Nav Links (Desktop) -->
+        <nav id="nav-links" class="hidden lg:flex items-center text-[#b3b3b3] px-2 mr-[-50px] overflow-hidden w-[696.48px] h-[65px]"> 
+          <div class="link lg:px-6 xl:px-[43px] hover:text-white transition duration-300 ease-in-out inline-block">
+            <a href="">Security</a>
+          </div>
+          <div class="link lg:px-6 xl:px-[43px] hover:text-white transition duration-300 ease-in-out inline-block">
+            <a href="">Support</a>
+          </div>
+          <div class="link lg:px-6 xl:px-[43px] hover:text-white transition duration-300 ease-in-out inline-block">
+            <a href="">FAQs</a>
+          </div>
+          <div class="link lg:px-6 xl:px-[43px] hover:text-white transition duration-300 ease-in-out inline-block">
+            <a href="">Discord</a>
+          </div>
+          <div class="link lg:px-6 xl:px-[43px] hover:text-white transition duration-300 ease-in-out inline-block">
+            <a href="">Pricing</a>
+          </div>
+        </nav>
+  
+        <!-- Signin Button (Desktop) -->
+        <a href="" id="signin-btn" class="relative rounded-xl border-2 border-[#e0c9ff] text-white px-6 py-3 bg-black hidden lg:block">
+          Sign-up / Login
+        </a>
+  
+        <!-- Menu Button (Mobile) -->
+        <div id="menuBtnContainer" class="lg:hidden w-[80px] h-[65.5px] flex items-center justify-center relative z-[1000] cursor-pointer">
+          <div id="btn-bars" class="w-[28%] h-[8%] relative">
+            <div id="bar1" class="h-[2px] w-full absolute top-0 left-1/2 -translate-x-1/2 bg-white"></div>
+            <div id="bar2" class="h-[2px] w-full absolute top-full left-1/2 -translate-x-1/2 bg-white rounded-full"></div>
+          </div>
+        </div>
+      </nav> 
+
+      <!-- Overlay Background -->
+      <div id="overlay" class="fixed top-0 right-[-110%] w-full h-screen z-[998] lg:hidden pointer-events-none opacity-0" style="background: linear-gradient(to right, rgba(0, 0, 0, 0.3) 40%, rgb(0, 0, 0) 80%); pointer-events: all; opacity: 0.35;"></div>
+
+      <!-- Side Menu (Mobile) -->
+      <aside class="fixed top-0 right-[-110%] z-[999] w-full sm:w-full md:w-[60vw] lg:w-[40vw] xl:w-[35vw] h-screen bg-[#1c1d20] pt-[110.6px] pb-[50px] px-[20px] text-white flex flex-col justify-between lg:hidden">
+        <div class="options flex flex-col">
+          <h4 class="uppercase text-[10.5px] font-medium mb-7 opacity-50">Navigation</h4>
+          <div class="w-full h-px bg-[#ffffff39]"></div>
+          <ul id="links-wrap" class="w-full py-7 flex flex-col items-start transition-all duration-700 ease-in-out">
+            <li class="w-full h-[72.8px] overflow-hidden text-[#b3b3b3] hover:text-white hover:scale-[1.02]">
+              <a href="" class="w-full h-full flex items-center justify-between px-3 text-[46px] uppercase">Security</a>
+            </li>
+            <li class="w-full h-[72.8px] overflow-hidden text-[#b3b3b3] hover:text-white hover:scale-[1.02]">
+              <a href="" class="w-full h-full flex items-center justify-between px-3 text-[46px] uppercase">Support</a>
+            </li>
+            <li class="w-full h-[72.8px] overflow-hidden text-[#b3b3b3] hover:text-white hover:scale-[1.02]">
+              <a href="" class="w-full h-full flex items-center justify-between px-3 text-[46px] uppercase">FAQs</a>
+            </li>
+            <li class="w-full h-[72.8px] overflow-hidden text-[#b3b3b3] hover:text-white hover:scale-[1.02]">
+              <a href="" class="w-full h-full flex items-center justify-between px-3 text-[46px] uppercase">Discord</a>
+            </li>
+            <li class="w-full h-[72.8px] overflow-hidden text-[#b3b3b3] hover:text-white hover:scale-[1.02]">
+              <a href="" class="w-full h-full flex items-center justify-between px-3 text-[46px] uppercase">Pricing</a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+    </header>
+
+    <main class="relative w-full pt-[75px] text-[#fff] bg-[#000] overflow-hidden" >
+      <!-- Hero Section -->
+      <section id="hero-section" class="w-screen min-h-[50vh] flex items-center justify-start flex-col gap-[30px] lg:gap-10 pt-[90px] relative" >
+        <!-- <div class="hero-center-img absolute z-[-20] w-[440px] sm:w-[900px] h-auto top-[71%] sm:top-[112%] left-6/12 translate-[-50%]">
+          <video autoplay muted loop playsinline loading="lazy">
+            <source src="assets/wanted.webm" type="video/webm" />
+          </video>
+        </div> -->
+
+        <div class="layer-blur w-[30rem] h-[0px] absolute top-[6%] left-[-150%] sm:left-[-80%] md:left-[-50%] lg:left-[-40%] xl:left-[-28%] 2xl:left-[-17%] opacity-[0.4] rotate-[45deg]" style="box-shadow: 0px 0px 700px 200px #e0c9ff;"></div>
+
+        <div class="layer-blur w-[30rem] h-[0px] absolute top-[6%] right-[-150%] sm:right-[-80%] md:right-[-50%] lg:right-[-40%] xl:right-[-28%] 2xl:right-[-17%] opacity-[0.4] rotate-[310deg]" style="box-shadow: 0px 0px 700px 200px #e0c9ff;"></div>
+
+        <div id="welcome-badge" class="badge px-3 py-1.5 md:px-6 md:py-3  uppercase relative rounded-full text-[11px] md:text-[16px] cursor-default ">
+          <p>Welcome to wanted.club</p>
+          <div class="bg w-full h-full bg-[#141129] absolute top-0 left-0 rounded-full z-[-1]"></div>
+          <div class="flare-layer absolute w-[102%] h-[108%] left-6/12 top-6/12 translate-[-50%] z-[-2] rounded-full"></div>
+          <div class="flare-layer absolute w-[100%] h-[100%] left-6/12 top-6/12 translate-[-50%] z-[-1] rounded-full" style="filter: blur(1.5rem);"></div>
+        </div>
+
+        <div id="main-heading" class="headline w-auto h-auto text-[25px] md:text-[50px] lg:text-[55px]  xl:text-[65px]  2xl:text-[84px] flex items-center justify-center gap-[8px] lg:gap-[30px] cursor-default overflow-hidden">
+          <span class="font-light inline-block">Your</span>
+          <span class="text-[#C498FF] font-bold inline-block">Vibe,</span>
+          <span class="font-light inline-block">Your</span>
+          <span class="font-light inline-block">Tribe,</span>
+          <span class="text-[#C498FF] font-bold inline-block">One</span>
+          <span class="font-light inline-block">Link</span>
+        </div>
+
+        <a href="" id="profile-link" class="bg-[#141129] px-6 py-2.5 md:px-24 md:py-3 rounded-full relative cursor-default">
+          <p class="text-center md:text-3xl">wanted.club/username</p>
+          <div class="bg w-full h-full bg-[#141129] absolute top-0 left-0 rounded-full z-[-1]"></div>
+          <div class="flare-layer absolute w-[101%] h-[108%] left-6/12 top-6/12 translate-[-50%] z-[-2] rounded-full"></div>
+          <div class="flare-layer absolute w-[100%] h-[100%] left-6/12 top-6/12 translate-[-50%] z-[-1] rounded-full" style="filter: blur(1.5rem);"></div>
+        </a>
+
+        <div class="description w-auto h-auto flex items-center justify-center text-[12px] lg:text-[20px] font-light">
+          <p class="text-center">Wanted.club is your ultimate flex — dope biolinks that scream <br>
+            you and secure file hosting that’s stupid fast. Drop your links, style your page-  over here</p>
+        </div>
+
+        <div class="circle-row h-[315px] w-[99%] lg:w-[90%] flex items-center justify-between mt-26 md:mt-10">
+          <div class="circle-wrapper h-full w-[260px] flex items-center justify-center">
+            <div class="gradient-circle w-[125px] h-[120px] lg:w-[150px] lg:h-[150px] xl:w-[225px] xl:h-[225px] bg-[linear-gradient(157deg,_#e0c9ff,_#c498ff,_#351e51,_#1a1433)] rounded-[50%] relative">
+              <div class="phone-img absolute z-10 left-6/12 -translate-x-[50%] top-[-30%]">
+                <img src="assets/phone1.webp" alt="" class="w-[120px]"> 
+              </div>
+            </div>
+          </div>
+
+          <div class="circle-wrapper h-full w-[260px] flex items-center justify-center">
+            <div class="gradient-circle w-[120px] h-[120px] lg:w-[150px] lg:h-[150px] xl:w-[225px] xl:h-[225px] bg-[linear-gradient(157deg,_#e0c9ff,_#c498ff,_#351e51,_#1a1433)] rounded-[50%] relative">
+              <div class="phone-img absolute z-10 left-6/12 -translate-x-[50%] top-[-30%]">
+                <img src="assets/phone1.webp" alt="" class="w-[120px]"> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section id="features-section" class="w-screen min-h-[50vh] pb-[30px] flex justify-start items-center flex-col gap-[40px] pt-[25px]" >
+        <div class="w-[95.84%] h-auto  grid grid-cols-1 md:grid-cols-2 gap-5 items-center">
+          <div class="feature-group-left left h-auto flex items-center justify-center lg:justify-start gap-2.5 lg:gap-5">
+            <div class="feature-card w-[130px] h-[250px] 2xl:w-[200px] 2xl:h-[350px] rounded-[50px] border-[1px] border-[#e0c9ff] 2xl:text-[22px] text-[#111] p-[25px] leading-5 2xl:leading-8 relative overflow-hidden font-extrabold bg-cover bg-center bg-[linear-gradient(180deg,_#e0c9ff,_#c498ff,_#351e51)]" >
+              <div class="relative z-[2]">
+                <p>Discord</p>
+                <p>Server</p>
+                <p>Showcase</p>
+              </div>
+              <div class="absolute bg-cover bg-center opacity-[0.5] top-0 left-0 z-[1] w-full h-full " style="background-image: url(assets/Discord-Server-Showcase.webp);"></div>
+            </div>
+
+            <div class="feature-card w-[290px] h-[250px] 2xl:w-[325px] 2xl:h-[350px] rounded-[50px] border-[1px] border-[#e0c9ff] 2xl:text-[22px] text-[#111] p-[25px] leading-5 2xl:leading-8 relative overflow-hidden font-extrabold bg-[linear-gradient(180deg,_#e0c9ff,_#c498ff,_#351e51)]">
+              <div class="relative z-[2]">
+                <p>Custom Profile</p>
+                <p>Layout Modules</p>
+              </div>
+              <div class="absolute bg-cover bg-center opacity-[0.5] top-0 left-0 z-[1] w-full h-full" style="background-image: url(assets/Custom-Profile-LayoutModes.webp);"></div>
+            </div>
+          </div>
+
+          <div  class="feature-group-right right h-auto flex items-center justify-center lg:justify-end gap-2.5 lg:gap-5">
+            <div class="feature-card w-[130px] h-[250px] 2xl:w-[200px] 2xl:h-[350px] rounded-[50px] font-extrabold border-[1px] border-[#e0c9ff] 2xl:text-[22px] text-[#111] p-[25px] leading-5 2xl:leading-8 relative overflow-hidden bg-[linear-gradient(180deg,_#e0c9ff,_#c498ff,_#351e51)]">
+              <div class="absolute bg-cover bg-center opacity-[0.5] top-0 left-0 z-[1] w-full h-full" style="background-image: url(assets/ProfileMusic.webp);"></div>
+              <div class="relative z-[2]">
+                <p>Profile</p>
+                <p>Music</p>
+              </div>
+            </div>
+
+            <div class="feature-card w-[290px] h-[250px] 2xl:w-[325px] 2xl:h-[350px] rounded-[50px] border-[1px] border-[#e0c9ff] 2xl:text-[22px] text-[#111] p-[25px] leading-5 2xl:leading-8 font-extrabold relative overflow-hidden bg-[linear-gradient(180deg,_#e0c9ff,_#c498ff,_#351e51)]">
+              <div class="absolute bg-cover bg-center opacity-[0.5] top-0 left-0 z-[1] w-full h-full" style="background-image: url(assets/Profile-Level-Xp-System.webp);"></div>
+              <div class="relative z-[2]">
+                <p>Profile Level /</p>
+                <p>XP System</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section Ending Callout -->
+        <div class="callout-container w-[95.84%] h-auto flex items-center justify-center">
+          <div class="callout-text w-[50%] h-full text-[22px] md:text-[43px] lg:text-[55px] xl:text-[70px] 2xl:text-[87px] leading-12.5 md:leading-17.5 xl:leading-19.5 2xl:leading-23.5 tracking-[-1px]">
+            <h1 class="font-light">All You</h1>
+            <h1 class="font-light">Desire,</h1>
+            <h1 class="font-bold italic">One Click Awway</h1>
+          </div>
+
+          <div class="callout-box  h-full w-[50%] flex items-start justify-end">
+            <div class="feature-card w-[400px] h-[200px] 2xl:w-[500px] lg:h-[233px]  rounded-[50px] border-[1px] border-[#e0c9ff] lg:text-[32px] text-[#111] p-[25px] leading-5 lg:leading-8 relative overflow-hidden font-extrabold bg-[linear-gradient(180deg,_#e0c9ff,_#c498ff,_#351e51)]">
+              <div class="relative z-[2]">
+                <p>Dynamic Themes</p>
+                <p>Based on Time</p>
+              </div>
+              <div class="absolute bg-cover bg-center opacity-[0.5] top-0 left-0 z-[1] w-full h-full" style="background-image: url(assets/Dynamic-Themes-Based-On-Time.webp);"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="divider w-[95.84%] h-[60px] relative flex items-center justify-center">
+          <div class="divider-line w-full h-[2px] bg-[#351e51]"></div>
+          <div class="box-overlay w-[200px] h-[45px] lg:w-[320px] lg:h-[60px] bg-[#000] absolute top-[50%] left-[50%] translate-[-50%] flex items-center justify-center">
+            <div class="badge rounded-[50px] w-[180px] lg:w-[300px] h-full flex items-center justify-center uppercase  text-[11px] lg:text-[16px] font-bold bg-[#1a1433] border-[1px] border-[#351e51]">
+              <p>Welcome to wanted.club</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pricing Section -->
+      <section id="pricing-section" class="w-screen min-h-screen py-5 flex justify-start items-center flex-col" >
+        <div class="pricing-banner w-full h-[240px] md:h-[320px] bg-[#e0c9ff] flex items-center justify-center bg-cover bg-center" style="background-image: url(assets/pricing-banner-bg.webp);">
+          <div class="pricing-banner-text text-center flex flex-col justify-center items-center  overflow-hidden">
+            <h1 class="text-[#111] font-light text-[50px] md:text-[60px]">One-Click</h1>
+            <h2 class="text-[#111] font-normal text-[50px] md:text-[60px] -mt-4 mb-3">Theme Cloning</h2>
+            <p class="text-[#111] font-normal text-[16px] md:text-[28px]">See a theme you love on someone else’s profile?</p>
+            <p class="text-[#111] font-normal text-[16px] md:text-[28px]">With one click, copy their color scheme</p>
+          </div>
+        </div>
+
+        <div id="pricing-cards" class="w-full h-full text-[#fff]">
+          <div class="pricing-header text-center py-8">
+            <h1 class="text-[30px] md:text-[50px] font-bold">
+              <span class="text-[#e0c9ff]">FINTRO</span> Pricing Plans
+            </h1>
+            <p class="text-[14px] md:text-[20px] font-normal">
+              Choose the plan that fits your needs. All plans include our core financial tools.
+            </p>
+          </div>    
+
+          <div id="pricing-cards-container" class="w-full h-full flex items-center justify-center ">
+            <div id="plans-grid" class="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-6 w-auto place-items-center">
+              <div class="pricing-card bg-[#1c1d20] rounded-[20px] p-6 w-[340px] h-[500px] md:w-[435px] md:h-[635px] flex-col flex items-start justify-start gap-8 md:gap-11 hover:scale-[1.01] transition-all ease-in-out duration-300">
+                <div class="title">
+                  <h2 class="text-[30px] md:text-[45px] font-bold uppercase">Free</h2>
+                  <p class="font-normal text-lg md:text-xl">Basic financial tools</p>
+                </div>
+                
+                <p class="text-sm md:text-xl">
+                  <span class="text-[30px] md:text-[45px] font-bold">$0</span>/Month
+                </p>
+
+                <ul class="features-list space-y-2 text-sm md:text-xl">
+                  <li>✔ Limited transfer</li>
+                  <li>✔ Basic Dashboard</li>
+                  <li>✔ Email Support</li>
+                </ul>
+
+                <a href="" class="btn w-full h-[80px] border-[1px] border-[#dbdbdb] flex items-center justify-center rounded-[44px] text-[22px]">
+                  <span>Choose</span>
+                </a>
+              </div>
+
+              <div class="pricing-card popular bg-[#1c1d20] border-[2px] border-[#e0c9ff] rounded-[20px] p-6 w-[340px] h-[500px] md:w-[435px] md:h-[635px] relative overflow-hidden flex-col flex items-start justify-start gap-8 md:gap-11 hover:scale-[1.01] transition-all ease-in-out duration-300">
+                <span class="badge-popular absolute top-0 right-0 bg-[#e0c9ff] text-[#111] px-4 py-1 text-[13px] md:text-[16px] font-semibold uppercase">Popular</span>
+
+                <div class="title">
+                  <h2 class="text-[30px] md:text-[45px] font-bold uppercase">Standard</h2>
+                  <p class="text-lg md:text-xl">Perfect for individuals</p>
+                </div>
+
+                <p class="text-sm md:text-xl">
+                  <span class="text-[30px] md:text-[45px] font-bold">$24.00</span>/Month
+                </p>
+
+                <ul class="features-list space-y-2 text-sm md:text-xl">
+                  <li>✔ Unlimited transfer</li>
+                  <li>✔ Advanced Dashboard</li>
+                  <li>✔ Priority Support</li>
+                  <li>✔ Custom spending alerts</li>
+                  <li>✔ Personal Finance Manager</li>
+                </ul>
+
+                <a href="" class="btn w-full h-[80px] bg-[#e0c9ff] text-[#111] flex items-center justify-center rounded-[44px] text-[22px]">
+                  <span>Choose</span>
+                </a>
+              </div>
+
+              <div class="pricing-card bg-[#1c1d20] rounded-[20px] p-6 w-[340px] h-[500px] md:w-[435px] md:h-[635px] flex-col flex items-start justify-start gap-8 md:gap-11 hover:scale-[1.01] transition-all ease-in-out duration-300">
+                <div class="title">
+                  <h2 class="text-[30px] md:text-[45px] font-bold uppercase">Premium</h2>
+                  <p class="text-lg md:text-xl">For businesses</p>
+                </div>
+
+                <p class="text-sm md:text-xl">
+                  <span class="text-[30px] md:text-[45px] font-bold">$50.00</span>/Month
+                </p>
+                 
+                <ul class="features-list space-y-2 text-sm md:text-xl">
+                  <li>✔ All Standard features</li>
+                  <li>✔ Multi-user access</li>
+                  <li>✔ Advanced analytics</li>
+                  <li>✔ API integration</li>
+                  <li>✔ Dedicated account manager</li>
+                </ul>
+
+                <a href="" class="btn w-full h-[80px] border-[1px] border-[#dbdbdb] flex  items-center justify-center rounded-[44px] text-[22px]">
+                  <span>Choose</span>
+                </a>
+              </div>
+            </div>
+          </div> 
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section id="faq-section" class="w-screen min-h-[50vh] px-3 md:px-10 lg:px-20 py-20 relative overflow-hidden flex flex-col items-start justify-start gap-20" >
+        <div id="gradient-banner" class="w-full h-[25vh] sm:h-[30vh] md:h-[37.3vh] rounded-2xl md:rounded-[50px] bg-[rgba(15,11,31,0.62)] border-[1px] border-[rgba(0,0,0,0.8)] relative overflow-hidden backdrop-blur-2xl flex items-center justify-center flex-col gap-4 md:gap-5">
+
+          <h1 class="font-bold md:text-2xl lg:text-3xl  xl:text-4xl tracking-wider">Flex Harder, Share Smarter.</h1>
+
+          <h2 class="font-extralight text-xs md:text-xl  lg:text-2xl  xl:text-3xl text-center">Custom pages + lightning-fast hosting. No compromises.</h2>
+
+          <div id="profile-link" class="bg-[#141129] px-6 py-2.5 md:px-24 md:py-3 rounded-full relative cursor-default">
+            <p class="text-center text-[13px] md:text-[16px] 2xl:text-3xl">wanted.club/username</p>
+            <div class="flare-layer absolute w-[101%] h-[108%] left-6/12 top-6/12 translate-[-50%] z-[-1] rounded-full"></div>
+            <div class="flare-layer absolute w-[100%] h-[100%] left-6/12 top-6/12 translate-[-50%] z-[-1] rounded-full" style="filter: blur(1.5rem);"></div>
+          </div>
+
+          <h2 class="font-extralight md:text-xl lg:text-2xl xl:text-3xl">Biolinks That Bite Back.</h2>
+
+          <div class="layer-blur w-[220px] h-[180px] lg:w-[350px] bg-[#e0c9ff] rounded-full lg:h-[300px] backdrop-blur-2xl shadow-[20px_100px_700px_60px_#e0c9ff] filter blur-2xl absolute top-[-47%] left-[-46%] lg:left-[-3%] z-[-1] opacity-[0.7]"></div>
+
+          <div class="layer-blur w-[220px] h-[180px] lg:w-[350px] bg-[#e0c9ff] rounded-full lg:h-[300px] backdrop-blur-2xl shadow-[100px_20px_700px_60px_#e0c9ff] filter blur-2xl absolute bottom-[-47%] rotate-[209deg] right-[-46%] lg:right-[-5%] z-[-1] opacity-[0.7]"></div>
+          
+        </div>
+
+        <div class="flex flex-col-reverse gap-20 md:gap-0 md:flex-row items-center justify-between w-full space-y-4">
+          <div class="faq-container flex flex-col items-start justify-center gap-8 px-1 sm:px-10 relative z-[2]">
+            <h1 class="text-[22px] sm:text-3xl lg:text-4xl 2xl:text-5xl">Frequently Asked Questions</h1>
+  
+            <ul class="faq-list text-[#b3b3b3] text-[16px] lg:text-xl 2xl:text-2xl font-light space-y-4">
+              <li class="flex items-center justify-start gap-3.5">
+                <span>
+                  <svg width="10px" height="10px" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <rect x="1" y="1" width="14" height="14" fill="#fff"></rect> </g></svg>
+                </span>
+                <a href="#" class="hover:text-white">How do I create a tip.cc wallet?</a>
+              </li>
+  
+              <li class="flex items-center justify-start gap-3.5">
+                <span>
+                  <svg width="10px" height="10px" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <rect x="1" y="1" width="14" height="14" fill="#fff"></rect> </g></svg>
+                </span>
+                <a href="#" class="hover:text-white">Can I use my balance on a different server?</a>
+              </li>
+  
+              <li class="flex items-center justify-start gap-3.5">
+                <span>
+                  <svg width="10px" height="10px" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <rect x="1" y="1" width="14" height="14" fill="#fff"></rect> </g></svg>
+                </span>
+                <a href="#" class="hover:text-white">Are my funds safe?</a>
+              </li>
+  
+              <li class="flex items-center justify-start gap-3.5">
+                <span>
+                  <svg width="10px" height="10px" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <rect x="1" y="1" width="14" height="14" fill="#fff"></rect> </g></svg>
+                </span>
+                <a href="#" class="hover:text-white">What if the exchange rate of a cryptocurrency goes up or down?</a>
+              </li>
+  
+              <li class="flex items-center justify-start gap-3.5">
+                <span>
+                  <svg width="10px" height="10px" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <rect x="1" y="1" width="14" height="14" fill="#fff"></rect> </g></svg>
+                </span>
+                <a href="#" class="hover:text-white">Can I exchange one cryptocurrency to another?</a>
+              </li>
+  
+              <li class="flex items-center justify-start gap-3.5">
+                <span>
+                  <svg width="10px" height="10px" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <rect x="1" y="1" width="14" height="14" fill="#fff"></rect> </g></svg>
+                </span>
+                <a href="#" class="hover:text-white">Can I use the bot on chats without installation?</a>
+              </li>
+  
+              <li class="flex items-center justify-start gap-3.5">
+                <span>
+                  <svg width="10px" height="10px" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <rect x="1" y="1" width="14" height="14" fill="#fff"></rect> </g></svg>
+                </span>
+                <a href="#" class="hover:text-white">I received a tip, what can I do with it?</a>
+              </li>
+            </ul>
+          </div>
+  
+          <img src="assets/logo.webp" alt="" class="w-[80px] md:w-[130px] xl:w-[200px] h-auto md:mr-20 relative z-[1]">
+        </div>
+
+        <div class="layer-blur w-[50px] bg-[#e0c9ff] rounded-full h-[25px] absolute bottom-[10%] rotate-[209deg] right-[20%] z-[-1] opacity-[0.7] filter blur-2xl" style="box-shadow:0px 0px 700px 60px #e0c9ff;"></div>
+      </section>
+
+      <!-- Footer Section -->
+      <footer id="site-footer" class="w-screen min-h-[47vh] bg-[#351e51] py-8 flex flex-col items-center justify-center gap-5" >
+        <div class="footer-content w-[90vw] 2xl:w-[1279.11px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.7fr_0.7fr_0.7fr_1.5fr] gap-4 md:gap-10 py-5">
+          <a href="" class="footer-branding">
+            <div class="footer-logo flex items-end gap-2">
+              <img src="assets/logo.webp" alt="" class="w-[50px]">
+              <h2>Wanted.club</h2>
+            </div>
+            
+            <p class="mt-6 text-lg lg:text-xl text-justify tracking-tight">The next generation Solana wallet, designed for seamless transactions and enhanced security.</p>
+          </a>
+
+          <div class="footer-box rounded-xl px-6 py-4 bg-[rgba(197,152,255,0.5)] backdrop-blur-lg">
+            <h2 class="text-xl font-medium cursor-default mb-5">Quick Links</h2>
+            <ul class="space-y-2.5 text-[#b3b3b3] text-lg font-normal transition-all duration-300 ease-in-out">
+              <li>
+                <a href="" class="hover:text-[#fff]">Wallet</a>
+              </li>
+              <li>
+                <a href="" class="hover:text-[#fff]">Feature</a>
+              </li>
+              <li>
+                <a href="" class="hover:text-[#fff]">Security</a>
+              </li>
+              <li>
+                <a href="" class="hover:text-[#fff]">Support</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-box rounded-xl px-6 py-4 bg-[rgba(197,152,255,0.5)]">
+            <h2 class="text-xl font-medium cursor-default mb-5">Resources</h2>
+            <ul class="space-y-2.5 text-[#b3b3b3] text-lg font-normal transition-all duration-300 ease-in-out">
+              <li>
+                <a href="" class="hover:text-[#fff]">Documentation</a>
+              </li>
+              <li>
+                <a href="" class="hover:text-[#fff]">FAQ</a>
+              </li>
+              <li>
+                <a href="" class="hover:text-[#fff]">Legal</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-box rounded-xl px-6 py-4 bg-[rgba(197,152,255,0.5)]">
+            <h2 class="text-xl font-medium cursor-default mb-5">Connect With Us</h2>
+            <ul class="space-x-2 flex items-center justify-start gap-3">
+              <a href="" id="discord" class="flex items-center justify-center p-2 bg-[#0000007d] backdrop-blur-[20px] rounded-full">
+                <span>
+                  <svg width="35px" height="35px" class="fill-[grey]" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="1.248"><defs><style>.a{fill:none;stroke:#111;stroke-linecap:round;stroke-linejoin:round;}</style></defs><path class="a" d="M17.54,34.22A47.42,47.42,0,0,1,14.68,38C7.3,37.79,4.5,33,4.5,33A44.83,44.83,0,0,1,9.31,13.48,16.47,16.47,0,0,1,18.69,10l1,2.31"></path><path class="a" d="M17.85,22.67a3.48,3.48,0,0,0-3.37,3.9,3.38,3.38,0,0,0,3.31,3.22,3.53,3.53,0,0,0,3.43-3.9A3.45,3.45,0,0,0,17.85,22.67Z"></path><path class="a" d="M12.2,14.37a28.19,28.19,0,0,1,8.16-2.18A23.26,23.26,0,0,1,24,12a23.26,23.26,0,0,1,3.64.21,28.19,28.19,0,0,1,8.16,2.18m-7.47-2.09,1-2.31a16.47,16.47,0,0,1,9.38,3.51A44.83,44.83,0,0,1,43.5,33S40.7,37.79,33.32,38a47.42,47.42,0,0,1-2.86-3.81m6.46-2.9a29.63,29.63,0,0,1-8.64,3.49,21.25,21.25,0,0,1-4.28.4h0a21.25,21.25,0,0,1-4.28-.4,29.63,29.63,0,0,1-8.64-3.49"></path><path class="a" d="M30.15,22.67a3.48,3.48,0,0,1,3.37,3.9,3.38,3.38,0,0,1-3.31,3.22,3.53,3.53,0,0,1-3.43-3.9A3.45,3.45,0,0,1,30.15,22.67Z"></path></g><g id="SVGRepo_iconCarrier"><defs><style>.a{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;}</style></defs><path class="a" d="M17.54,34.22A47.42,47.42,0,0,1,14.68,38C7.3,37.79,4.5,33,4.5,33A44.83,44.83,0,0,1,9.31,13.48,16.47,16.47,0,0,1,18.69,10l1,2.31"></path><path class="a" d="M17.85,22.67a3.48,3.48,0,0,0-3.37,3.9,3.38,3.38,0,0,0,3.31,3.22,3.53,3.53,0,0,0,3.43-3.9A3.45,3.45,0,0,0,17.85,22.67Z"></path><path class="a" d="M12.2,14.37a28.19,28.19,0,0,1,8.16-2.18A23.26,23.26,0,0,1,24,12a23.26,23.26,0,0,1,3.64.21,28.19,28.19,0,0,1,8.16,2.18m-7.47-2.09,1-2.31a16.47,16.47,0,0,1,9.38,3.51A44.83,44.83,0,0,1,43.5,33S40.7,37.79,33.32,38a47.42,47.42,0,0,1-2.86-3.81m6.46-2.9a29.63,29.63,0,0,1-8.64,3.49,21.25,21.25,0,0,1-4.28.4h0a21.25,21.25,0,0,1-4.28-.4,29.63,29.63,0,0,1-8.64-3.49"></path><path class="a" d="M30.15,22.67a3.48,3.48,0,0,1,3.37,3.9,3.38,3.38,0,0,1-3.31,3.22,3.53,3.53,0,0,1-3.43-3.9A3.45,3.45,0,0,1,30.15,22.67Z"></path></g></svg>
+                </span>
+              </a>
+
+              <a href="" id="github" class="flex items-center justify-center p-2 bg-[#0000007d] backdrop-blur-[20px] rounded-full">
+                <span>
+                  <svg width="35px" height="35px" class="text-[grey]" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>github [#ffffff]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-140.000000, -7559.000000)" fill="#fff"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M94,7399 C99.523,7399 104,7403.59 104,7409.253 C104,7413.782 101.138,7417.624 97.167,7418.981 C96.66,7419.082 96.48,7418.762 96.48,7418.489 C96.48,7418.151 96.492,7417.047 96.492,7415.675 C96.492,7414.719 96.172,7414.095 95.813,7413.777 C98.04,7413.523 100.38,7412.656 100.38,7408.718 C100.38,7407.598 99.992,7406.684 99.35,7405.966 C99.454,7405.707 99.797,7404.664 99.252,7403.252 C99.252,7403.252 98.414,7402.977 96.505,7404.303 C95.706,7404.076 94.85,7403.962 94,7403.958 C93.15,7403.962 92.295,7404.076 91.497,7404.303 C89.586,7402.977 88.746,7403.252 88.746,7403.252 C88.203,7404.664 88.546,7405.707 88.649,7405.966 C88.01,7406.684 87.619,7407.598 87.619,7408.718 C87.619,7412.646 89.954,7413.526 92.175,7413.785 C91.889,7414.041 91.63,7414.493 91.54,7415.156 C90.97,7415.418 89.522,7415.871 88.63,7414.304 C88.63,7414.304 88.101,7413.319 87.097,7413.247 C87.097,7413.247 86.122,7413.234 87.029,7413.87 C87.029,7413.87 87.684,7414.185 88.139,7415.37 C88.139,7415.37 88.726,7417.2 91.508,7416.58 C91.513,7417.437 91.522,7418.245 91.522,7418.489 C91.522,7418.76 91.338,7419.077 90.839,7418.982 C86.865,7417.627 84,7413.783 84,7409.253 C84,7403.59 88.478,7399 94,7399" id="github-[#ffffff]"> </path> </g> </g> </g> </g></svg>
+                </span>
+              </a>
+
+              <a href="" id="mail" class="flex items-center justify-center p-2 bg-[#0000007d] backdrop-blur-[20px] rounded-full">
+                <span>
+                  <svg width="35px" height="35px" viewBox="0 0 48 48" id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><defs><style>.cls-1{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;}</style></defs><path class="cls-1" d="M6.47,10.71a2,2,0,0,0-2,2h0V35.32a2,2,0,0,0,2,2H41.53a2,2,0,0,0,2-2h0V12.68a2,2,0,0,0-2-2H6.47Zm33.21,3.82L24,26.07,8.32,14.53"></path></g></svg>
+                </span>
+              </a>
+            </ul>
+          </div>
+        </div>
+
+        <div class="line w-[90vw] 2xl:w-[1279.11px] h-[2px] bg-[rgba(197,152,255,0.5)]"></div>
+
+        <div class="w-[90vw] 2xl:w-[1279.11px] py-1 flex items-center justify-between flex-wrap text-xs ">
+          <p>&copy; 2024 MemePay. All rights reserved.</p>
+          <p class="flex items-center justify-center gap-2">
+            Made with 
+            <span>
+              <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M8.96173 18.9109L9.42605 18.3219L8.96173 18.9109ZM12 5.50063L11.4596 6.02073C11.601 6.16763 11.7961 6.25063 12 6.25063C12.2039 6.25063 12.399 6.16763 12.5404 6.02073L12 5.50063ZM15.0383 18.9109L15.5026 19.4999L15.0383 18.9109ZM9.42605 18.3219C7.91039 17.1271 6.25307 15.9603 4.93829 14.4798C3.64922 13.0282 2.75 11.3345 2.75 9.1371H1.25C1.25 11.8026 2.3605 13.8361 3.81672 15.4758C5.24723 17.0866 7.07077 18.3752 8.49742 19.4999L9.42605 18.3219ZM2.75 9.1371C2.75 6.98623 3.96537 5.18252 5.62436 4.42419C7.23607 3.68748 9.40166 3.88258 11.4596 6.02073L12.5404 4.98053C10.0985 2.44352 7.26409 2.02539 5.00076 3.05996C2.78471 4.07292 1.25 6.42503 1.25 9.1371H2.75ZM8.49742 19.4999C9.00965 19.9037 9.55954 20.3343 10.1168 20.6599C10.6739 20.9854 11.3096 21.25 12 21.25V19.75C11.6904 19.75 11.3261 19.6293 10.8736 19.3648C10.4213 19.1005 9.95208 18.7366 9.42605 18.3219L8.49742 19.4999ZM15.5026 19.4999C16.9292 18.3752 18.7528 17.0866 20.1833 15.4758C21.6395 13.8361 22.75 11.8026 22.75 9.1371H21.25C21.25 11.3345 20.3508 13.0282 19.0617 14.4798C17.7469 15.9603 16.0896 17.1271 14.574 18.3219L15.5026 19.4999ZM22.75 9.1371C22.75 6.42503 21.2153 4.07292 18.9992 3.05996C16.7359 2.02539 13.9015 2.44352 11.4596 4.98053L12.5404 6.02073C14.5983 3.88258 16.7639 3.68748 18.3756 4.42419C20.0346 5.18252 21.25 6.98623 21.25 9.1371H22.75ZM14.574 18.3219C14.0479 18.7366 13.5787 19.1005 13.1264 19.3648C12.6739 19.6293 12.3096 19.75 12 19.75V21.25C12.6904 21.25 13.3261 20.9854 13.8832 20.6599C14.4405 20.3343 14.9903 19.9037 15.5026 19.4999L14.574 18.3219Z" fill="#809dff"></path> </g></svg>
+            </span>
+            by MemePay Team
+          </p>
+        </div>
+      </footer>
+    </main>
+
+    <script src="https://unpkg.com/lenis@1.3.4/dist/lenis.min.js"></script> 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js" integrity="sha512-wOeEC+9qERAzhliwBFPDb6t8TiFFxdxG8vhK/Ygs7TuC44bpg8pg/X2/U/u+0X4fK05wb9id1EIipnF02+CFQw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="app.js"></script>
+  </body>
+</html>
